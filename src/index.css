@@ -6,21 +6,20 @@ body {
   min-height: 100vh;
 }
 
-.to-do-list {
+.to-do-list{
   font-family: Arial, sans-serif;
   text-align: center;
 }
-
 .week-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
+  
 }
-
 .day-column {
   width: 300px;
-  min-height: 300px;
+  min-height: 300px; 
   padding: 15px;
   border-radius: 8px;
   background: hsl(0, 0%, 20%);
@@ -30,7 +29,6 @@ body {
   flex-direction: column;
   gap: 10px;
 }
-
 .task-item {
   display: flex;
   align-items: center;
@@ -39,23 +37,40 @@ body {
   background: white;
   border-radius: 5px;
   border: 2px solid hsla(0, 0%, 85%, 0.75);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  font-size: 1.6rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background: white;
+  border-radius: 5px;
+  border: 2px solid hsla(0, 0%, 85%, 0.75);
   font-size: 1.6rem;
   font-weight: bold;
   color: black;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Cho phép xuống dòng */
 }
 
-.task-item.completed {
-  background-color: hsl(0, 0%, 80%) !important;
-  color: hsl(0, 0%, 50%);
-  text-decoration: line-through;
+.task-item span {
+  flex: 1; /* Cho phép mở rộng hết phần còn lại */
+  text-align: left; /* Căn chữ bên trái */
+  padding-left: 10px; /* Khoảng cách giữa viền và chữ */
+  word-wrap: break-word; /* Xuống dòng nếu quá dài */
+  white-space: normal; /* Cho phép xuống dòng */
 }
 
 .task-buttons {
   display: flex;
-  gap: 5px;
-  flex-shrink: 0;
+  gap: 5px; /* Khoảng cách giữa các nút */
+  flex-shrink: 0; /* Không cho co lại */
 }
+
 
 .task-buttons button {
   padding: 6px 10px;
@@ -65,17 +80,16 @@ body {
   justify-content: center;
 }
 
-h1 {
+h1{
   font-size: 4rem;
   color: white;
 }
-
-h3 {
+h3{
   font-size: 2.5rem;
   color: white;
 }
 
-button {
+button{
   font-size: 1rem;
   font-weight: bold;
   color: white;
@@ -85,44 +99,37 @@ button {
   transition: background-color 0.5 ease;
 }
 
-.add-button {
+.add-button{
   margin-top: 10px;
   background-color: hsl(125, 47%, 54%);
 }
 
-.add-button:hover {
+.add-button:hover{
   background-color: hsl(125, 47%, 44%);
 }
-
-.delete-button {
+.delete-button{
   background-color: hsl(10, 90%, 50%);
 }
-
-.delete-button:hover {
-  background-color: hsl(10, 90%, 40%);
+.delete-button:hover{
+  background-color: hsl(125, 47%, 40%);
 }
-
-.move-button {
+.move-button{
   background-color: hsl(207, 90%, 64%);
 }
-
-.move-button:hover {
+.move-button:hover{
   background-color: hsl(207, 90%, 54%);
 }
-
-input[type="text"] {
+input[type="text"]{
   font-size: 1.6rem;
   padding: 10px;
   border: 2px solid hsla(0, 0%, 80%, 0.5); 
   border-radius: 5px;
-  color: hsla(0, 0%, 0%, 0.2);
+  color: hsla(0, 0%, 0%, 0.2)
 }
-
-ul {
+ul{
   padding: 0;
 }
-
-li {
+li{
   color: black;
   font-size: 1rem;
   font-weight: bold;
@@ -131,4 +138,34 @@ li {
   border: 3px solid hsla(0, 0%, 85%, 0.75);
   border-radius: 5px;
   display: flex;
+}
+
+
+
+.delete-button, .move-button {
+  padding: 6px 10px;
+  font-size: 1.2rem;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .day-column {
+    width: 180px;
+    max-width: 25vw;
+  }
+  .task-item {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .week-container {
+    flex-direction: column; /* Xếp chồng cột thay vì nằm ngang */
+    align-items: center;
+  }
+  .day-column {
+    width: 90%; /* Chiếm toàn bộ chiều rộng màn hình */
+  }
 }
